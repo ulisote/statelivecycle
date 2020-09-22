@@ -5,9 +5,23 @@ import ReactDOM from "react-dom";
 class Clock extends React.Component{
   constructor(props){
     super(props);
-    this.state = {
-      date = new Date()
-    }
+    this.state = {date : new Date()}
+  }
+
+  componentDidMount(){
+    this.timerID = setInterval(()=>{
+      this.tick()
+    }, 1000)
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.timerID);
+  }
+
+  tick(){
+    this.setState({
+      date: new Date()
+    })
   }
 
   render(){
@@ -18,6 +32,5 @@ class Clock extends React.Component{
     </div>
   )} 
 }
-const renderizar = <Clock />;
 
-ReactDOM.render(renderizar, document.getElementById("root"));
+ReactDOM.render(<Clock />, document.getElementById("root"));
