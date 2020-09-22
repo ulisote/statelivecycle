@@ -28,7 +28,7 @@ class Clock extends React.Component{
   return(
     <div>
       <h1>Ejemplo del Reloj de la documentación de React</h1>
-      <h2>La Hora es: { this.state.date.toLocateTimeString}</h2>
+      <h2>La Hora es: { this.state.date.toLocaleTimeString()}</h2>
     </div>
   )} 
 }
